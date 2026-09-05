@@ -1,0 +1,12 @@
+# Netlify reads this file verbatim (copied into out/ by the build).
+# Replaces next.config `headers()`, which static export forbids.
+
+# The tour reels are immutable, content-addressed by filename
+# (01-living-room.mp4 …) and preloaded from /g404's <head>. A
+# returning QR guest must get them from cache — without this,
+# Netlify's default would revalidate ~14MB on every visit.
+/rooms/:path/room-reels/:file*
+  Cache-Control: public, max-age=31536000, immutable
+
+/rooms/:path/room-reels/posters/:file*
+  Cache-Control: public, max-age=31536000, immutable

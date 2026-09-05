@@ -1,0 +1,51 @@
+# Netlify reads this file verbatim (copied into out/ by the build).
+# Replaces next.config redirects(), which static export forbids.
+
+# /rooms is obsolete and deprecated — no redirects from it. Old
+# /rooms/<slug> and /rooms/<slug>/gallery links are allowed to 404.
+
+# Short-code shortcuts — every property is reachable by its door
+# code (/g404, /g304, /b207…). They map to the canonical gallery
+# view. Keep in sync with content/properties.json.
+/g102  /stays/dhb-stays-serviced-studio-egyptian-museum-cairo-g102/gallery  301
+/g103  /stays/dhb-stays-short-term-rental-ramses-station-cairo-g103/gallery  301
+/g302  /stays/dhb-stays-serviced-studio-egyptian-museum-cairo-2-g302/gallery  301
+/g303  /stays/dhb-stays-short-term-rental-ramses-station-cairo-2-g303/gallery  301
+/g403  /stays/dhb-stays-short-term-rental-ramses-station-cairo-3-g403/gallery  301
+/g503  /stays/dhb-stays-short-term-rental-ramses-station-cairo-4-g503/gallery  301
+/b207  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-b207/gallery  301
+/b301  /stays/dhb-stays-1br-apartment-tahrir-square-cairo-b301/gallery  301
+/b302  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-2-b302/gallery  301
+/b401  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-3-b401/gallery  301
+/b402  /stays/dhb-stays-1br-apartment-tahrir-square-cairo-2-b402/gallery  301
+/b407  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-4-b407/gallery  301
+/b601  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-5-b601/gallery  301
+/b602  /stays/dhb-stays-1br-apartment-tahrir-square-cairo-3-b602/gallery  301
+/b607  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-6-b607/gallery  301
+/g201  /stays/dhb-stays-1br-apartment-tahrir-square-cairo-5-g201/gallery  301
+/g301  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-7-g301/gallery  301
+/g401  /stays/dhb-stays-1br-apartment-tahrir-square-cairo-6-g401/gallery  301
+/g501  /stays/dhb-stays-1br-downtown-cairo-qasr-el-nil-8-g501/gallery  301
+/g601  /stays/dhb-stays-1br-apartment-tahrir-square-cairo-7-g601/gallery  301
+/g104  /stays/dhb-stays-2br-downtown-cairo-qasr-el-nil-g104/gallery  301
+/g204  /stays/dhb-stays-2br-apartment-tahrir-square-cairo-g204/gallery  301
+/g304  /stays/dhb-stays-2br-downtown-cairo-qasr-el-nil-2-g304/gallery  301
+/g504  /stays/dhb-stays-2br-downtown-cairo-qasr-el-nil-3-g504/gallery  301
+/g604  /stays/dhb-stays-2br-apartment-tahrir-square-cairo-g604/gallery  301
+/g404  /stays/dhb-stays-2br-apartment-tahrir-square-cairo-2-g404/gallery  301
+
+# Print-card filter codes — the QR twins of the /apartments filter
+# URLs (see lib/doorcodes.js FILTER_SHORTCUTS; /[code] prerenders
+# these for the dev server too).
+/dt      /apartments/downtown                     301
+/2br     /apartments/downtown+2br             301
+/1br     /apartments/downtown+1br             301
+/studio  /apartments/downtown+studio             301
+/family  /apartments/downtown+2br             301
+/museum  /apartments/downtown+egyptian+museum  301
+/ramses  /apartments/downtown+ramses           301
+/tahrir  /apartments/downtown+tahrir           301
+/qasr    /apartments/downtown+qasr+el+nil      301
+
+# /qr — the alias the printed QR cards carry; the resolver page is /code.
+/qr  /code  301
