@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002F1br","\u002F2br","\u002F3br","\u002F[slug]","\u002F[slug]\u002F[type]","\u002Fstays\u002F[slug]\u002Fgallery","\u002Fstudio"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

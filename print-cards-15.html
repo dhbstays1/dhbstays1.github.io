@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DHB Stays — Print Card 15 (A4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--surface:#fcf9f5;--card:#fff;--beige:#f5f2ee;--sand:#ebe7e0;--onyx:#111;--ink:#1c1c1a;
+--espresso:#554339;--terra:#984300;--terra-soft:#f6daca;--terra-deep:#763300;--outline:#dcc1b4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#e5e2de;font-family:'Hanken Grotesk',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.serif{font-family:'Playfair Display',serif;font-weight:300}
+.sheet{width:210mm;height:297mm;background:var(--card);margin:10mm auto;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.sheet.beige{background:var(--beige)}
+.sheet.dark{background:var(--onyx);color:#f3f0ec}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--terra)}
+.dark .eyebrow{color:#ffb68e}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;padding:12mm 16mm 0}
+.brand{height:11mm;width:auto;opacity:.9}
+.brand.invert{filter:invert(1) brightness(1.6)}
+.sheet-foot{margin-top:auto;border-top:.75px solid var(--outline);padding:5mm 16mm 9mm;display:flex;justify-content:space-between;align-items:flex-end;gap:8mm}
+.dark .sheet-foot{border-top-color:#3a3a38}
+.foot-note{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--espresso);line-height:1.6}
+.dark .foot-note{color:#c9c4bd}
+.url-pill{display:block;width:max-content;margin-top:3.5mm;background:var(--terra-soft);color:var(--terra-deep);font-size:10px;font-weight:600;padding:1.8mm 4.5mm;border-radius:3px;letter-spacing:.02em}
+.dark .url-pill{background:#3a2415;color:#ffb68e}
+.qr{background:#fff;border:1.5px dashed var(--terra);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;color:var(--terra);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;text-align:center;flex-shrink:0}
+.qr svg{width:9mm;height:9mm;stroke:var(--terra)}
+.wm{position:absolute;bottom:30mm;right:-8mm;font-family:'Playfair Display',serif;font-weight:300;font-size:60mm;color:var(--terra-soft);opacity:.35;line-height:1;pointer-events:none}
+img{object-fit:cover;display:block;background:var(--sand)}
+.chips{display:flex;flex-wrap:wrap;gap:2.5mm;align-content:flex-start}
+.chip{background:var(--sand);color:var(--espresso);font-size:10px;font-weight:500;padding:1.6mm 4mm;border-radius:3px}
+.dark .chip{background:#2b2a28;color:#e5e2de}
+.center{justify-content:center}
+.lead{font-size:13.5px;color:var(--espresso);line-height:1.85;max-width:88mm}
+.two-col{display:flex;gap:10mm;padding:8mm 16mm 0;align-items:flex-start}
+.two-col .lead{flex:1}.two-col .chips{flex:1;padding-top:1mm}
+/* ——— cover ——— */
+.cover-wrap{flex:1;display:flex;flex-direction:column;padding:10mm 16mm 0}
+.cover-wrap h1{font-family:'Playfair Display',serif;font-weight:300;font-size:50px;line-height:1.08;color:#f3f0ec;margin-top:6mm}
+.cover-wrap h1 em{font-style:italic;color:#ffb68e}
+.cover-sub{font-size:13.5px;color:#c9c4bd;line-height:1.8;margin-top:5mm;max-width:130mm}
+.cover-cuts{display:flex;gap:14mm;margin-top:9mm}
+.cut{display:flex;flex-direction:column}
+.cut .n{font-family:'Playfair Display',serif;font-weight:300;font-size:44px;color:#ffb68e;line-height:1}
+.cut .l{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#a39c95;margin-top:2mm}
+.cover-photo{margin-top:auto;height:112mm;width:100%}
+.cover-img{width:100%;height:100%}
+/* ——— fact sheet ——— */
+.fact-wrap{padding:12mm 16mm 0}
+.fact-h{font-size:34px;line-height:1.15;color:var(--onyx);margin:4mm 0 8mm}
+.fact-grid{border-top:.75px solid var(--outline)}
+.row{display:flex;justify-content:space-between;padding:5mm 0;border-bottom:.75px solid var(--outline)}
+.rt{font-size:14px;font-weight:600}.rs{font-size:12px;color:var(--espresso);letter-spacing:.04em}
+.fact-stats{display:flex;gap:16mm;padding:10mm 0 0}
+.stat .n{font-size:36px;color:var(--terra);line-height:1;display:block}
+.dark .stat .n{color:#ffb68e}
+.stat .l{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--espresso);display:block;margin-top:2mm;line-height:1.7}
+/* ——— hero + strip ——— */
+.hero-wrap{position:relative;height:148mm;margin:6mm 16mm 0}
+.hero-img{width:100%;height:100%}
+.hero-overlay{position:absolute;left:0;bottom:0;background:rgba(17,17,17,.72);backdrop-filter:blur(4px);color:#f3f0ec;padding:7mm 10mm;max-width:78%}
+.ov-eyebrow{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#ffb68e;margin-bottom:2mm}
+.ov-h{font-size:30px;line-height:1.15;color:#fff}
+.badge-circle{position:absolute;top:-5mm;right:-5mm;width:28mm;height:28mm;border-radius:9999px;background:var(--terra-soft);color:var(--terra-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.badge-circle .num{font-size:24px;line-height:1}
+.badge-circle .cap{font-size:8.5px;letter-spacing:.14em}
+.strip{display:flex;gap:3mm;margin:4mm 16mm 0}
+.strip-img{flex:1;height:24mm}
+/* ——— grids ——— */
+.grid-6,.grid-4,.grid-3{display:grid;gap:4mm;padding:8mm 16mm 0}
+.grid-6{grid-template-columns:repeat(3,1fr);height:150mm}
+.grid-4{grid-template-columns:repeat(4,1fr);height:100mm}
+.grid-3{grid-template-columns:repeat(3,1fr);height:96mm}
+.g-cell{position:relative}
+.g-img{width:100%;height:100%}
+.grid-6 .g-img{height:58mm}.grid-4 .g-img{height:78mm}.grid-3 .g-img{height:74mm}
+/* 6-cell grid-3 (Tahrir 1BR): 2 rows of 3 — shrink cells so both rows fit */
+.grid-3.rows-2{height:auto;align-content:start}
+.grid-3.rows-2 .g-img{height:56mm}
+figcaption{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--espresso);padding:2mm 0 0}
+figcaption b{color:var(--terra-deep)}
+.grid-h{font-size:29px;line-height:1.18;margin-top:3mm}
+.center-block{text-align:center;padding:8mm 16mm 0}
+.center-block .chips{justify-content:center;margin-top:5mm}
+.center-top{text-align:center;padding:8mm 16mm 0}
+/* ——— split hero (qasr) ——— */
+.split-hero{display:flex;gap:4mm;padding:6mm 16mm 0;height:132mm}
+.sh-main{flex:2.4;position:relative}
+.sh-rail{flex:1;display:grid;grid-template-rows:repeat(4,1fr);gap:3mm}
+.rail-img{width:100%;height:100%}
+/* ——— arch (2BR spot) ——— */
+.arch{display:flex;gap:5mm;padding:6mm 16mm 0;height:140mm}
+.arch-main{flex:1.6;height:100%}
+.arch-side{flex:1;display:flex;flex-direction:column;gap:4mm}
+.stack-img{flex:1;width:100%}
+.spot-h{font-size:26px;line-height:1.2;margin-top:2mm}
+/* ——— split screen (friends) ——— */
+.split-screen{display:flex;height:140mm;margin:6mm 16mm 0;position:relative}
+.half{flex:1;position:relative;border-right:3mm solid var(--beige)}
+.half:last-child{border-right:none}
+.half-img{width:100%;height:100%}
+.tag{position:absolute;top:6mm;left:6mm;background:rgba(252,249,245,.92);padding:2mm 4.5mm;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--espresso)}
+.mid-cta{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:30mm;height:30mm;border-radius:9999px;background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.35;border:2mm solid var(--beige)}
+/* ——— spotlights ——— */
+.spot-head{display:flex;gap:10mm;padding:8mm 16mm 0;align-items:flex-end}
+.spot-head h2{font-size:26px;line-height:1.2;margin-top:2mm}
+.spot-head .lead{padding-bottom:2mm}
+.spot-hero{padding:6mm 16mm 0;height:120mm}
+.spot-hero .hero-img{height:100%}
+.tri{display:flex;gap:3mm;padding:4mm 16mm 0}
+.tri-img{flex:1;height:30mm}
+/* ——— train row (ramses) ——— */
+.train-row{display:flex;justify-content:center;gap:16mm;margin-top:5mm;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--espresso)}
+.train-row .num{font-size:26px;color:var(--terra);margin-right:2mm}
+/* ——— quote ——— */
+.quote-block{text-align:center;padding:12mm 24mm 0}
+.qmark{font-size:80px;line-height:.4;color:var(--terra-soft)}
+blockquote{font-size:24px;line-height:1.5;color:var(--onyx);margin-top:6mm}
+.who{margin-top:4mm;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--espresso)}
+.quote-block + .grid-4{margin-top:8mm;padding-top:0;height:78mm}
+.quote-block + .grid-4 .g-img{height:60mm}
+/* ——— steps ——— */
+.steps{padding:12mm 18mm 0}
+.c9-step{display:flex;gap:8mm;padding:7mm 0;border-bottom:.75px solid var(--outline)}
+.c9-step:last-child{border-bottom:none}
+.c9-num{font-size:40px;color:var(--terra);width:16mm;line-height:1;flex-shrink:0}
+.c9-step h3{font-size:15px;font-weight:600;letter-spacing:.04em}
+.c9-step p{font-size:12.5px;color:var(--espresso);line-height:1.8;margin-top:2mm;max-width:120mm}
+/* ——— index ——— */
+.ix-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8mm;padding:6mm 16mm 0}
+.ix-group{border-top:1px solid #3a3a38;padding-top:3mm}
+.ix-t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#ffb68e;margin-bottom:3mm}
+.ix{padding:2.4mm 0;border-bottom:.5px solid #2b2a28;display:flex;gap:3mm;align-items:baseline}
+.ix-c{font-size:14px;color:#f3f0ec;width:13mm;flex-shrink:0}
+.ix-n{font-size:9.5px;color:#c9c4bd;flex:1;line-height:1.4}
+.ix-m{font-size:9px;color:#a39c95;letter-spacing:.06em}
+/* print */
+@page{size:A4 portrait;margin:0}
+@media print{body{background:none}.sheet{margin:0;page-break-after:always}.sheet:last-child{page-break-after:auto}}
+</style>
+</head>
+<body>
+<section class="sheet ">
+  
+  <div class="sheet-head"><span class="eyebrow">Downtown Collection · 15</span>
+    <img class="brand" src="/logo-onyx.png" alt="DHB Stays"></div>
+  <div class="spot-head">
+  <div><div class="eyebrow">B607 · 1BR Apartment in Downtown Cairo Qasr El Nil</div>
+  <h2 class="serif spot-h">2 guests · 1 br · 1 bath</h2></div>
+  <p class="lead">Slightly chic, as the name promises.</p></div>
+<div class="spot-hero"><img class="hero-img" src="/rooms/dhb-stays-1br-downtown-cairo-qasr-el-nil-6-b607/DHB-STAYS-Slightly-Chic-Flat-in-Downtown-74-Apartments-for-Rent-in-Marouf-Cairo-Governorate-Egypt-Airbnb-2.jpeg" alt="" loading="lazy"></div>
+<div class="tri"><img class="tri-img" src="/rooms/dhb-stays-1br-downtown-cairo-qasr-el-nil-6-b607/DHB-STAYS-Slightly-Chic-Flat-in-Downtown-74-Apartments-for-Rent-in-Marouf-Cairo-Governorate-Egypt-Airbnb-14.jpeg" alt="" loading="lazy"><img class="tri-img" src="/rooms/dhb-stays-1br-downtown-cairo-qasr-el-nil-6-b607/DHB-STAYS-Slightly-Chic-Flat-in-Downtown-74-Apartments-for-Rent-in-Marouf-Cairo-Governorate-Egypt-Airbnb-18.jpeg" alt="" loading="lazy"><img class="tri-img" src="/rooms/dhb-stays-1br-downtown-cairo-qasr-el-nil-6-b607/DHB-STAYS-Slightly-Chic-Flat-in-Downtown-74-Apartments-for-Rent-in-Marouf-Cairo-Governorate-Egypt-Airbnb-20.jpeg" alt="" loading="lazy"></div>
+  <div class="sheet-foot">
+    <div class="foot-note">See B607 live<div class="url-pill">/b607</div></div>
+    <div class="qr" style="width:34mm;height:34mm">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h3v3h-3zM20 14v.01M17 20h3v-3"/></svg>
+      QR PLACEHOLDER<br>34×34&nbsp;mm</div>
+  </div>
+</section>
+</body>
+</html>
